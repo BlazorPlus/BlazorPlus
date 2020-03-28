@@ -1,7 +1,7 @@
 # BlazorPlus
 ASP.NET Core Blazor Server Session,Navigation,Dialog,Container,Controls,Components,FileUploader
 
-This project is testing internally
+This project is testing internally, More samples are being prepaired
 
 
 ## Samples
