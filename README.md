@@ -6,7 +6,9 @@ This project is testing internally, More samples are being prepaired
 
 ## Samples
 
-https://github.com/BlazorPlus/BlazorPlusDemo
+live demo : http://demo.blazorplus.com/
+
+demo code : https://github.com/BlazorPlus/BlazorPlusDemo
 
 
 ## Installation : 
