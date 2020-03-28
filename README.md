@@ -48,4 +48,10 @@ or here https://www.nuget.org/packages/BlazorPlus/
 	}
 ```
   
-  
+  Suggestion :
+  ```
+	 _Host.cshtml set App RenderMode to Server :
+	@(await Html.RenderComponentAsync<App>(RenderMode.Server))
+	or
+	<component type="typeof(App)" render-mode="Server" />
+```
