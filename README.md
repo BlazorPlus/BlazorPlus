@@ -26,7 +26,7 @@ or here https://www.nuget.org/packages/BlazorPlus/
 	endpoints.Map("/_blazorplus_handler", BlazorPlus.BlazorSession.ProcessRequestAsync);
 ```
 
-3 - _Host.cshtml
+3 - _Host.cshtml in head tag
 ```
 	<script src="/_blazorplus_handler?action=script" type="text/javascript"></script>
 ```
@@ -58,4 +58,13 @@ or here https://www.nuget.org/packages/BlazorPlus/
 	@(await Html.RenderComponentAsync<App>(RenderMode.Server))
 	or
 	<component type="typeof(App)" render-mode="Server" />
+
+	_Host.cshtml in head tag , for IE11
+	@{
+		string useragent = Request.Headers["User-Agent"].FirstOrDefault();
+	}
+	@if (useragent != null && (useragent.Contains("MSIE") || useragent.Contains("Trident")))
+	{
+		<script src="https://github.com/Daddoon/Blazor.Polyfill/releases/download/3.0.8/blazor.polyfill.min.js" type="text/javascript"></script>
+	}
 ```
