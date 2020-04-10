@@ -6,7 +6,9 @@ This project is testing internally, More samples are being prepaired
 
 ## Samples
 
-live demo : http://demo.blazorplus.com/
+server-side live demo : http://demo.blazorplus.com/
+
+client-side WASM demo : http://wasmdemo.blazorplus.com/
 
 demo code : https://github.com/BlazorPlus/BlazorPlusDemo
 
