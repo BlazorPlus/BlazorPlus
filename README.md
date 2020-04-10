@@ -1,8 +1,11 @@
 # BlazorPlus
-ASP.NET Core Blazor Server Session,Navigation,Dialog,Container,Controls,Components,FileUploader
+ASP.NET Core Blazor Server/Client/WASM Side Session,Modal Dialog,Controls,Components,File Upload
 
-This project is testing internally, More samples are being prepaired
+Single dll , light-weight (about 200KB) ,
 
+The components collection allow you show modal dialog with ESC key support , and BACK button for MOBILE
+
+And also allow you to program classic mode stateful control tree like jQuery with C# code
 
 ## Samples
 
