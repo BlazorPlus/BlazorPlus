@@ -15,6 +15,10 @@ client-side WASM demo : http://wasmdemo.blazorplus.com/
 
 demo code : https://github.com/BlazorPlus/BlazorPlusDemo
 
+## Advanced Demo
+
+BlazorLinuxAdmin : https://github.com/BlazorPlus/BlazorLinuxAdmin
+
 ![Screenshot](https://github.com/BlazorPlus/BlazorPlusDemo/raw/master/demoscreenshots/s001.jpg)
 
 
