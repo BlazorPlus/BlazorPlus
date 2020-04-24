@@ -23,7 +23,7 @@ BlazorLinuxAdmin : https://github.com/BlazorPlus/BlazorLinuxAdmin
 
 
 
-## Installation : 
+## Installation server-side : 
 
 1 - add BlazorPlus.dll reference , Nuget or download from github
 
@@ -53,7 +53,43 @@ before RouteView :
 	<BlazorContainer IsShared="true" />
 ```
 
-Now test it : 
+Now test it in Index.razor: 
+```
+	<button @onclick="ShowHelloWorld">Hello World</button>
+	@code{
+		void ShowHelloWorld()
+		{
+			BlazorSession.Current.Alert("Greeting", "Hello World");
+		}
+	}
+```
+
+
+
+## Installation WebAssembly
+
+
+1 - add BlazorPlus.dll reference , Nuget or download from github
+
+2 - Program.cs
+```
+	BlazorPlus.BlazorSession.InitForWasm(builder.Services);
+	builder.Services.AddScoped<BlazorPlus.BlazorSession>();
+```
+
+3 - _Imports.razor
+```
+	@using BlazorPlus
+```
+
+4 - MainLayout.razor
+```
+in front code :
+	@inject BlazorSession bses
+	<BlazorContainer IsShared="true"/>
+```
+
+Now test it in Index.razor: 
 ```
 	<button @onclick="ShowHelloWorld">Hello World</button>
 	@code{
