@@ -1,7 +1,7 @@
 # BlazorPlus
 ASP.NET Core Blazor Server/Client/WASM Side Session,Modal Dialog,Controls,Components,File Upload
 
-Single dll , light-weight (about 200KB) ,
+Single dll , light-weight (about 250KB) ,
 
 The components collection allow you show modal dialog with ESC key support , and BACK button for MOBILE
 
@@ -49,7 +49,7 @@ in <head> :
 
 5 - App.razor
 ```
-before RouteView : 
+at the front:
 	<BlazorContainer IsShared="true" />
 ```
 
@@ -84,7 +84,7 @@ Now test it in Index.razor:
 
 4 - MainLayout.razor
 ```
-in front code :
+at the front:
 	@inject BlazorSession bses
 	<BlazorContainer IsShared="true"/>
 ```
