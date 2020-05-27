@@ -4,7 +4,7 @@ BlazorPlus is a component library that helps you to write code more directly and
 Single dll , light-weight (about 260KB dll) , 
 Blazor Server/Client/WASM Side Session,Modal Dialog,Controls,File Upload,TreeView
 
-![Screenshot](https://github.com/BlazorPlus/BlazorPlus/raw/master/images/s002.jpg)
+![Screenshot](https://github.com/BlazorPlus/BlazorPlus/raw/master/images/s002.png)
 
 
 ## Samples
