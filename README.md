@@ -1,53 +1,46 @@
 # BlazorPlus
-ASP.NET Core Blazor Server/Client/WASM Side Session,Modal Dialog,Controls,Components,File Upload
 
-Single dll , light-weight (about 250KB) ,
+BlazorPlus is a component library that helps you to write code more directly and easily, 
+Single dll , light-weight (about 260KB dll) , 
+Blazor Server/Client/WASM Side Session,Modal Dialog,Controls,File Upload,TreeView
 
-The components collection allow you show modal dialog with ESC key support , and BACK button for MOBILE
+![Screenshot](https://github.com/BlazorPlus/BlazorPlus/raw/master/images/s002.jpg)
 
-And also allow you to program classic mode stateful control tree like jQuery with C# code
 
 ## Samples
 
-server-side live demo : http://demo.blazorplus.com/
-
-client-side WASM demo : http://wasmdemo.blazorplus.com/
+live demo : http://demo.blazorplus.com/
 
 demo code : https://github.com/BlazorPlus/BlazorPlusDemo
 
-## Advanced Demo
-
 BlazorLinuxAdmin : https://github.com/BlazorPlus/BlazorLinuxAdmin
 
-![Screenshot](https://github.com/BlazorPlus/BlazorPlusDemo/raw/master/demoscreenshots/s001.jpg)
 
-
+## Nuget name : BlazorPlus https://www.nuget.org/packages/BlazorPlus/
 
 ## Installation server-side : 
 
-1 - add BlazorPlus.dll reference , Nuget or download from github
-
-2 - Startup.cs
+1 - Startup.cs
 ```
 in ConfigureServices :
 	services.AddHttpContextAccessor();
 	services.AddScoped<BlazorPlus.BlazorSession>();
-in app.UseEndpoints :
+in app.UseEndpoints : (before Fallback)
 	endpoints.Map("/_blazorplus_handler", BlazorPlus.BlazorSession.ProcessRequestAsync);
 ```
 
-3 - _Host.cshtml
+2 - _Host.cshtml
 ```
 in <head> :
 	<script src="/_blazorplus_handler?action=script" type="text/javascript"></script>
 ```
 
-4 - _Imports.razor
+3 - _Imports.razor
 ```
 	@using BlazorPlus
 ```
 
-5 - App.razor
+4 - App.razor
 ```
 at the front:
 	<BlazorContainer IsShared="true" />
@@ -68,21 +61,18 @@ Now test it in Index.razor:
 
 ## Installation WebAssembly
 
-
-1 - add BlazorPlus.dll reference , Nuget or download from github
-
-2 - Program.cs
+1 - Program.cs
 ```
 	BlazorPlus.BlazorSession.InitForWasm(builder.Services);
 	builder.Services.AddScoped<BlazorPlus.BlazorSession>();
 ```
 
-3 - _Imports.razor
+2 - _Imports.razor
 ```
 	@using BlazorPlus
 ```
 
-4 - MainLayout.razor
+3 - MainLayout.razor
 ```
 at the front:
 	@inject BlazorSession bses
