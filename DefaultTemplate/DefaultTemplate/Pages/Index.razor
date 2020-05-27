@@ -4,3 +4,15 @@
 
 Welcome to your new app.
 
+<br />
+<br />
+
+@*Install-BlazorPlus*@
+
+<button class="btn btn-info" @onclick="ShowHelloWorld">Hello World</button>
+@code{
+	void ShowHelloWorld()
+	{
+		BlazorSession.Current.Alert("Greeting", "Hello World");
+	}
+}

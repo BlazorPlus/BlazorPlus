@@ -27,6 +27,11 @@ namespace DefaultTemplate
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
+
+			//Install-BlazorPlus
+			services.AddHttpContextAccessor();
+			services.AddScoped<BlazorPlus.BlazorSession, WebCustomizeSession>();
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +55,10 @@ namespace DefaultTemplate
 
 			app.UseEndpoints(endpoints =>
 			{
+				//Install-BlazorPlus
+				endpoints.Map("/_blazorplus_handler", BlazorPlus.BlazorSession.ProcessRequestAsync);
+
+
 				endpoints.MapBlazorHub();
 				endpoints.MapFallbackToPage("/_Host");
 			});
