@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorPlus" Version="1.2.36" />
+    <PackageReference Include="BlazorPlus" Version="1.2.37" />
   </ItemGroup>
 
 </Project>
