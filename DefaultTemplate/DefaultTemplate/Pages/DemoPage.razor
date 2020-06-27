@@ -1,0 +1,83 @@
+﻿@page "/demopage"
+
+
+@inherits BlazorPlusComponentBase
+
+
+<h3>DemoPage</h3>
+
+<h4>@@inherits BlazorPlusComponentBase</h4>
+<p>
+	There's 2 benefits to inherit BlazorPlusComponentBase :
+	<ul>
+		<li>the BlazorSession is injected as Session property , can use it directly , instead of BlazorSession.Current </li>
+		<li>All Exception throwed from event handlers of tags , will be captured into BlazorSession.ExceptionReport , so the connection will not break.</li>
+	</ul>
+</p>
+<p>Try the buttons in 'Error handling' section.</p>
+<p><br /></p>
+
+
+<h4>Error handling : </h4>
+<p>In the Providers.cs , public override void ExceptionReport(Exception err) , will show Toast for error and send stacktrace to console log , for Development deployment </p>
+
+<button class='btn btn-info' @onclick="TestError">TestError</button>
+
+<button class='btn btn-info' @onclick="TestErrorAsync">TestErrorAsync</button>
+
+<button class='btn btn-info' @onclick="TestErrorTimeout">TestErrorTimeout</button>
+
+<button class='btn btn-info' @onclick="TestErrorPost">TestErrorPost</button>
+
+<button class='btn btn-info' @onclick="TestErrorPlus">TestErrorPlus</button>
+
+<BlazorDomTree TagName="button" class="btn btn-info" OnRootReady="bdt_ready">bdt error</BlazorDomTree>
+
+@code {
+
+	void TestError()
+	{
+		throw new ApplicationException("Err TestError");
+	}
+
+	async Task TestErrorAsync()
+	{
+		await Task.Delay(200);
+		throw new ApplicationException("Err TestErrorAsync");
+	}
+
+	void TestErrorTimeout()
+	{
+		Session.SetTimeout(200, delegate
+		{
+			throw new ApplicationException("Err TestErrorTimeout");
+		});
+	}
+
+	void TestErrorPost()
+	{
+		Session.PostToRenderThread(delegate
+		{
+			throw new ApplicationException("Err TestErrorPost");
+		});
+	}
+
+	void TestErrorPlus()
+	{
+		PlusControl pc = new PlusControl("div");
+		pc.SetTimeout(200, delegate
+		{
+			throw new ApplicationException("Err TestErrorPlus");
+		});
+	}
+
+	void bdt_ready(BlazorDomTree bdt)
+	{
+		bdt.Root.OnClick(delegate
+		{
+			throw new ApplicationException("Err BDT");
+		});
+	}
+
+}
+

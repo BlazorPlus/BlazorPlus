@@ -17,6 +17,28 @@ namespace DefaultTemplate
 			_whe = whe;
 		}
 
+		public override void ExceptionReport(Exception err)
+		{
+			if (_whe.EnvironmentName != "Development")
+			{
+				base.ExceptionReport(err);
+				return;
+			}
+
+			this.ExceptionReportMode = BlazorExceptionReportMode.ToString;
+			base.ExceptionReport(err);
+			try
+			{
+				ToastClear();
+				Toast(err.Message);
+				FlushToClient();
+			}
+			catch
+			{
+
+			}
+		}
+
 		public override Type TypeGetUIDialogAlert(UIDialogOption option)
 		{
 			return typeof(CustomizeUI.UIDialogAlert);
